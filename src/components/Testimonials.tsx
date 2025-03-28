@@ -1,5 +1,5 @@
 // src/components/Testimonials.tsx
-// import { React } from 'react';
+import { useState } from 'react';
 import { Card, CardContent } from "../components/ui/card";
 import { Avatar, AvatarFallback } from "../components/ui/avatar";
 import {
