@@ -74,7 +74,7 @@ const Testimonials = () => {
           <Carousel
             opts={{ loop: true }}
             className="w-full"
-            onSelect={(index: number) => setActiveIndex(index)}
+            onSelect={(index) => setActiveIndex(index)}
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
