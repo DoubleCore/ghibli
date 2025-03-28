@@ -5,40 +5,40 @@ import { motion } from "framer-motion";
 
 const featureItems = [
   {
-    icon: "✨",
-    title: "Beautiful Components",
-    description:
-      "Leverage our pre-built components to create stunning interfaces with minimal effort.",
-  },
-  {
     icon: "🎨",
-    title: "Customizable Design",
+    title: "吉卜力风格转换",
     description:
-      "Easily customize colors, sizes, and behaviors to match your brand identity.",
+      "通过先进的AI技术，将您的普通照片转换成宫崎骏动画风格的艺术作品。",
   },
   {
     icon: "📱",
-    title: "Fully Responsive",
+    title: "随时随地上传",
     description:
-      "All components are designed to work flawlessly across all device sizes.",
+      "支持从手机、电脑上传照片，甚至可以直接拍照进行转换，随时捕捉灵感。",
   },
   {
     icon: "⚡",
-    title: "Performance Optimized",
+    title: "高速处理",
     description:
-      "Built with performance in mind to ensure smooth interactions and fast load times.",
+      "强大的AI引擎保证快速处理您的图片，几秒钟内即可获得转换结果。",
   },
   {
-    icon: "🔒",
-    title: "Accessibility First",
+    icon: "💾",
+    title: "云端保存",
     description:
-      "Designed with accessibility in mind, ensuring your app is usable by everyone.",
+      "所有转换后的作品都会保存在您的账户中，随时可以查看、下载和分享。",
   },
   {
-    icon: "🧩",
-    title: "Modular Architecture",
+    icon: "🔍",
+    title: "多种风格选择",
     description:
-      "Import only what you need, keeping your bundle size small and efficient.",
+      "提供多种吉卜力电影风格选择，如《千与千寻》、《龙猫》、《天空之城》等经典作品。",
+  },
+  {
+    icon: "🌟",
+    title: "高质量输出",
+    description:
+      "高分辨率输出，让您的转换作品清晰精美，适合打印和分享。",
   },
 ];
 
@@ -52,9 +52,9 @@ const Features = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-4 bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl"
+            className="mb-4 bg-gradient-to-r from-emerald-700 to-teal-700 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl"
           >
-            Powerful Features
+            神奇功能
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -63,8 +63,7 @@ const Features = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mx-auto max-w-2xl text-lg text-gray-600"
           >
-            Everything you need to build modern, beautiful interfaces that
-            delight your users and elevate your brand.
+            体验宫崎骏动画的魔力，将您的日常照片转换成充满想象力的艺术作品。
           </motion.p>
         </div>
 

@@ -1,5 +1,5 @@
 // src/components/Testimonials.tsx
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { Card, CardContent } from "../components/ui/card";
 import { Avatar, AvatarFallback } from "../components/ui/avatar";
 import {
@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "../components/ui/carousel";
 import { motion } from "framer-motion";
+import useEmblaCarousel from 'embla-carousel-react';
 
 const testimonials = [
   {
@@ -44,6 +45,30 @@ const testimonials = [
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  
+  // 使用 Embla Carousel 钩子
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  
+  // 创建 onSelect 回调
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setActiveIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+  
+  // 设置效果
+  useEffect(() => {
+    if (!emblaApi) return;
+    
+    // 订阅 select 事件
+    emblaApi.on('select', onSelect);
+    // 初始化时调用一次
+    onSelect();
+    
+    // 清理事件监听
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   return (
     <div className="bg-gradient-to-b from-white to-indigo-50 py-24 sm:py-32">
@@ -72,13 +97,15 @@ const Testimonials = () => {
           className="mx-auto max-w-5xl"
         >
           <Carousel
+            ref={emblaRef}
             opts={{ loop: true }}
             className="w-full"
             onChange={(event) => {
-              // 将事件类型转换为数字
-              // 从carousel中获取当前索引
-              const currentIndex = typeof event === 'number' ? event : 0;
-              setActiveIndex(currentIndex);
+              if (typeof event === 'number') {
+                setActiveIndex(event);
+              } else {
+                setActiveIndex((prev) => (prev + 1) % testimonials.length);
+              }
             }}
           >
             <CarouselContent>
