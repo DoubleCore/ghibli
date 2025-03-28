@@ -2,9 +2,10 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node",
+      "use": "@vercel/static-build",
       "config": {
-        "installCommand": "pnpm install --no-frozen-lockfile"
+        "installCommand": "npm install",
+        "buildCommand": "npm run build"
       }
     }
   ]
