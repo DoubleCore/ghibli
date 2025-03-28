@@ -74,7 +74,12 @@ const Testimonials = () => {
           <Carousel
             opts={{ loop: true }}
             className="w-full"
-            onSelect={(index) => setActiveIndex(index)}
+            onChange={(event) => {
+              // 将事件类型转换为数字
+              // 从carousel中获取当前索引
+              const currentIndex = typeof event === 'number' ? event : 0;
+              setActiveIndex(currentIndex);
+            }}
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
